@@ -9,6 +9,15 @@ package javaapplication12;
  *
  * @author amoro
  */
-public class mahasiswaRegular {
+public class mahasiswaRegular extends Mahasiswa {
+    Meet Meet;
+    
+    public mahasiswaRegular(String nama, int nim, mataKuliah mataKuliah){
+        super(nama,nim,mataKuliah);
+    }
+    
+    public void lihatLinkMeet(Meet Meet){
+        this.Meet = Meet;
+    }
     
 }
