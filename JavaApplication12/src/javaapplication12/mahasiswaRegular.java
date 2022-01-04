@@ -16,8 +16,8 @@ public class mahasiswaRegular extends Mahasiswa {
         super(nama,nim,mataKuliah);
     }
     
-    public void lihatLinkMeet(Meet Meet){
-        return;
+    public Meet lihatLinkMeet(){
+        return Meet;
     }
     
 }
