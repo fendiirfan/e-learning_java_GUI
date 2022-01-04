@@ -10,5 +10,25 @@ package javaapplication12;
  * @author amoro
  */
 public class Mahasiswa {
+    String nama;
+    int nim;
+    mataKuliah mataKuliah;
     
+    public Mahasiswa (String nama, int nim, mataKuliah mataKuliah){
+        this.nama = nama;
+        this.nim = nim;
+        this.mataKuliah = mataKuliah;
+    }
+    
+    public void getNama(String nama){
+        this.nama = nama;
+    }
+    
+    public void getNim(int nim){
+        this.nim = nim;
+    }
+    
+    public void getMatkul(mataKuliah mataKuliah){
+        this.mataKuliah = mataKuliah;
+    }
 }
