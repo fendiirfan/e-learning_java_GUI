@@ -10,5 +10,7 @@ package javaapplication12;
  * @author amoro
  */
 public class mataKuliah {
-    
+    String namaMataKuliah;
+    Dosen Dosen = new Dosen(String );
+    mataKuliahPilihan matkulPilihan = new mataKuliahPilihan();
 }
