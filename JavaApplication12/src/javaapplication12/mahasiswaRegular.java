@@ -17,7 +17,7 @@ public class mahasiswaRegular extends Mahasiswa {
     }
     
     public void lihatLinkMeet(Meet Meet){
-        this.Meet = Meet;
+        return;
     }
     
 }
