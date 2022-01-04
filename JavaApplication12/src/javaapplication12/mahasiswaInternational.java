@@ -9,6 +9,16 @@ package javaapplication12;
  *
  * @author amoro
  */
-public class mahasiswaInternational {
+public class mahasiswaInternational extends Mahasiswa {
+    private String Bahasa;
+    private Meet Meet;
     
+    public mahasiswaInternational(String nama, int nim, mataKuliah mataKuliah, String Bahasa){
+        super(nama,nim,mataKuliah);
+        this.Bahasa = Bahasa;
+    }
+    
+    public Meet lihatLinkMeet(){
+        return this.Meet;
+    }
 }
