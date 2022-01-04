@@ -1,9 +1,8 @@
 # e-learning_java_GUI
 
 ### Aktor
-1. Admin
-2. Dosen
-3. Mahasiswa
+1. Dosen
+2. Mahasiswa
 
 ### Fitur
 1. Login (Admin, Dosen, Mahasiswa)
