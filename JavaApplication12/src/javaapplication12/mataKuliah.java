@@ -10,7 +10,21 @@ package javaapplication12;
  * @author amoro
  */
 public class mataKuliah {
-    String namaMataKuliah;
-    Dosen Dosen = new Dosen(String );
-    mataKuliahPilihan matkulPilihan = new mataKuliahPilihan();
+    mataKuliahWajib mataKuliahWajib;
+    Dosen Dosen;
+    mataKuliahPilihan matakulPilihan;
+    
+    public mataKuliah(mataKuliahWajib mataKuliahWajib, Dosen Dosen, mataKuliahPilihan matakulPilihan){
+        this.Dosen = Dosen;
+        this.matakulPilihan = matakulPilihan;
+        this.mataKuliahWajib = mataKuliahWajib;
+    }
+    
+    public void setMatkulWajib(mataKuliahWajib mataKuliahWajib){
+        this.mataKuliahWajib = mataKuliahWajib;
+    }
+    
+    public void setMatkulPilihan(mataKuliahWajib mataKuliahWajib){
+        this.matakulPilihan = matakulPilihan;
+    }
 }
