@@ -10,5 +10,37 @@ package javaapplication12;
  * @author amoro
  */
 public class Meet {
-    String namaMeet;
+    private String namaMeet, linkMeet, tanggalMeet;
+    
+    public Meet(String namaMeet, String linkMeet, String tanggalMeet){
+        this.namaMeet = namaMeet;
+        this.linkMeet = linkMeet;
+        this.tanggalMeet = tanggalMeet;
+    }
+    
+    public void setNamaMeet(String namaMeet){
+        this.namaMeet = namaMeet;
+    }
+    
+    public void setLinkMeet(String linkMeet){
+        this.linkMeet = linkMeet;
+    }
+    
+    public void setTanggalMeet(String tanggalMeet){
+        this.tanggalMeet = tanggalMeet;
+    }
+    
+    public String getLinkMeet(){
+        return linkMeet;
+    }
+    
+    public String getTanggalMeet(){
+        return tanggalMeet;
+    }
+    
+    public String getNamaMeet(){
+        return namaMeet;
+    }
+    
+    
 }
