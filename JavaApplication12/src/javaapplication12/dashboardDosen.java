@@ -32,14 +32,14 @@ public class dashboardDosen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SELAMAT DATANG DI MENU DOSEN");
 
-        jLabel1.setText("SELAMAT DATANG di MENU DOSEN");
+        jLabel1.setText("Selamat Datang di Menu Dosen");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
+                .addContainerGap(119, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(85, 85, 85))
         );
