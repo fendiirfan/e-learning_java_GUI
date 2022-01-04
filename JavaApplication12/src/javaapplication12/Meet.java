@@ -10,5 +10,5 @@ package javaapplication12;
  * @author amoro
  */
 public class Meet {
-    
+    String namaMeet;
 }
