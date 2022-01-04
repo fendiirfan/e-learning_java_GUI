@@ -40,7 +40,7 @@ public class loginFrame extends javax.swing.JPanel {
 
         jRadioButton1.setText("jRadioButton1");
 
-        jLabel1.setText("Selamat Datang di E-Leanring Kampus Merdeka");
+        jLabel1.setText("Selamat Datang di E-Learnring Kampus Merdeka");
         jLabel1.setToolTipText("");
 
         jLabel2.setText("Username");
@@ -86,7 +86,7 @@ public class loginFrame extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addContainerGap(134, Short.MAX_VALUE))
+                        .addContainerGap(130, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
