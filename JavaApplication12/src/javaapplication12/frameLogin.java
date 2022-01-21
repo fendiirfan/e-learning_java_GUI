@@ -9,14 +9,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+//import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import org.jcp.xml.dsig.internal.dom.Utils;
+//import org.jcp.xml.dsig.internal.dom.Utils;
 /**
  *
  * @author amoro
@@ -181,7 +181,7 @@ public class frameLogin extends javax.swing.JFrame {
         
         try {
             String jdbcUrl;
-            jdbcUrl = "jdbc:sqlite:D:/File/Tubes/PBO/e-learning_java_GUI/JavaApplication12/sqlite/userdb.db";
+            jdbcUrl = "jdbc:sqlite:sqlite/userdb.db";
             Connection connection;
             connection = DriverManager.getConnection(jdbcUrl);
             Boolean cek = false;
@@ -189,7 +189,7 @@ public class frameLogin extends javax.swing.JFrame {
             if ("Mahasiswa".equals(userJenis)){
                 String sqlMahasiswa = "select * from Mahasiswa where Username='"+user+"' and Password='"+pass+"'";
                 ResultSet result = connection.createStatement().executeQuery(sqlMahasiswa);
-                dashboardMahasiswa mahasiswa = new dashboardMahasiswa();
+                
                 int i = 0;
                 while(result.next()){
                     int idMahasiswa = result.getInt("ID");
@@ -198,7 +198,7 @@ public class frameLogin extends javax.swing.JFrame {
                 }
                 if(cek==true){
                     this.setVisible(false);
-                    
+                    dashboardMahasiswa mahasiswa = new dashboardMahasiswa();
                     mahasiswa.setVisible(true);
                     this.dispose();
                 }
@@ -209,7 +209,7 @@ public class frameLogin extends javax.swing.JFrame {
                 DefaultListModel model = new DefaultListModel();
                 List<String> listNamaMatkul = new ArrayList<>();
                 int i = 0;
-                dashboardDosen dosen = new dashboardDosen();
+                
                 while(result.next()){
                     cek=true;
                     listNamaMatkul.add(result.getString("mataKuliah"));
@@ -217,7 +217,9 @@ public class frameLogin extends javax.swing.JFrame {
                     i = i + 1;
                 }
                 if(cek==true){
-                    dosen.modelListMahasiswa = model;
+                    dashboardDosen dosen = new dashboardDosen();
+//                    dosen.modelListMahasiswa = model;
+                    dosen.jListKelas.setModel(model);
                     this.setVisible(false);
                     dosen.setVisible(true);
                     this.dispose();
