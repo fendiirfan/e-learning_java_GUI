@@ -10,8 +10,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.jcp.xml.dsig.internal.dom.Utils;
 /**
@@ -186,30 +189,36 @@ public class frameLogin extends javax.swing.JFrame {
             if ("Mahasiswa".equals(userJenis)){
                 String sqlMahasiswa = "select * from Mahasiswa where Username='"+user+"' and Password='"+pass+"'";
                 ResultSet result = connection.createStatement().executeQuery(sqlMahasiswa);
+                dashboardMahasiswa mahasiswa = new dashboardMahasiswa();
+                int i = 0;
                 while(result.next()){
                     int idMahasiswa = result.getInt("ID");
                     cek=true;
+                    i = i + 1;
                 }
                 if(cek==true){
                     this.setVisible(false);
-                    dashboardMahasiswa mahasiswa = new dashboardMahasiswa();
+                    
                     mahasiswa.setVisible(true);
                     this.dispose();
                 }
-               
-                
-
             }
             else{
                 String sqlMahasiswa = "select * from Dosen where Username='"+user+"' and Password='"+pass+"'";
                 ResultSet result = connection.createStatement().executeQuery(sqlMahasiswa);
+                DefaultListModel model = new DefaultListModel();
+                List<String> listNamaMatkul = new ArrayList<>();
+                int i = 0;
+                dashboardDosen dosen = new dashboardDosen();
                 while(result.next()){
-                    int idDosen = result.getInt("ID");
                     cek=true;
+                    listNamaMatkul.add(result.getString("mataKuliah"));
+                    model.addElement(listNamaMatkul.get(i));                 
+                    i = i + 1;
                 }
                 if(cek==true){
+                    dosen.modelListMahasiswa = model;
                     this.setVisible(false);
-                    dashboardDosen dosen = new dashboardDosen();
                     dosen.setVisible(true);
                     this.dispose();
                 }
