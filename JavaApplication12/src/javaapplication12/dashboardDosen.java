@@ -5,6 +5,9 @@
  */
 package javaapplication12;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author amoro
@@ -14,6 +17,8 @@ public class dashboardDosen extends javax.swing.JFrame {
     /**
      * Creates new form dashboardDosen
      */
+    List<String> listNamaKelas = new ArrayList<>();
+    
     public dashboardDosen() {
         initComponents();
     }

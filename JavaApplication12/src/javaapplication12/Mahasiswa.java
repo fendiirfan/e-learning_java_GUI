@@ -14,7 +14,7 @@ public class Mahasiswa {
     int nim;
     mataKuliah mataKuliah;
     
-    public Mahasiswa (String nama, int nim, mataKuliah mataKuliah){
+    public Mahasiswa(String nama, int nim, mataKuliah mataKuliah){
         this.nama = nama;
         this.nim = nim;
         this.mataKuliah = mataKuliah;
