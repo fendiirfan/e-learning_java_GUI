@@ -189,16 +189,19 @@ public class frameLogin extends javax.swing.JFrame {
             if ("Mahasiswa".equals(userJenis)){
                 String sqlMahasiswa = "select * from Mahasiswa where Username='"+user+"' and Password='"+pass+"'";
                 ResultSet result = connection.createStatement().executeQuery(sqlMahasiswa);
-                
+                DefaultListModel model = new DefaultListModel();
+                List<String> listNamaMatkul = new ArrayList<>();
                 int i = 0;
                 while(result.next()){
-                    int idMahasiswa = result.getInt("ID");
+                    listNamaMatkul.add(result.getString("mataKuliah"));
+                    model.addElement(listNamaMatkul.get(i));
                     cek=true;
                     i = i + 1;
                 }
                 if(cek==true){
                     this.setVisible(false);
                     dashboardMahasiswa mahasiswa = new dashboardMahasiswa();
+                    mahasiswa.jListKelas.setModel(model);
                     mahasiswa.setVisible(true);
                     this.dispose();
                 }
@@ -218,7 +221,6 @@ public class frameLogin extends javax.swing.JFrame {
                 }
                 if(cek==true){
                     dashboardDosen dosen = new dashboardDosen();
-//                    dosen.modelListMahasiswa = model;
                     dosen.jListKelas.setModel(model);
                     this.setVisible(false);
                     dosen.setVisible(true);

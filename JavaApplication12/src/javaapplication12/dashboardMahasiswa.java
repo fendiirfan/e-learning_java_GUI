@@ -5,6 +5,17 @@
  */
 package javaapplication12;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author amoro
@@ -15,10 +26,9 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
     /**
      * Creates new form dashboardMahasiswa2
      */
-    String username;
+    
     public dashboardMahasiswa() {
         initComponents();
-        
     }
     
 
@@ -34,13 +44,13 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jNamaMeet = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jLinkMeet = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListTanggal = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListKelas = new javax.swing.JList<>();
 
@@ -50,9 +60,9 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
 
         jLabel8.setText("Selamat Datang di Menu Mahasiswa");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jNamaMeet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jNamaMeetActionPerformed(evt);
             }
         });
 
@@ -62,14 +72,24 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
 
         jLabel12.setText("Link Meet");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jLinkMeet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jLinkMeetActionPerformed(evt);
             }
         });
 
-        jScrollPane1.setViewportView(jList1);
+        jListTanggal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListTanggalMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jListTanggal);
 
+        jListKelas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListKelasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jListKelas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -94,12 +114,12 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jNamaMeet, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(45, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLinkMeet, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel11)
@@ -115,11 +135,11 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jNamaMeet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLinkMeet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(49, Short.MAX_VALUE)
@@ -155,13 +175,81 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+            
+    private void jNamaMeetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNamaMeetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jNamaMeetActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void jLinkMeetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLinkMeetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_jLinkMeetActionPerformed
+
+    private void jListKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListKelasMouseClicked
+        // TODO add your handling code here:
+        
+        String value = jListKelas.getSelectedValue();
+        String jdbcUrl;
+        jdbcUrl = "jdbc:sqlite:sqlite/userdb.db";
+        Connection connection;
+        try {
+            connection = DriverManager.getConnection(jdbcUrl);
+            String sqlMahasiswa = "select * from Meet where mataKuliah='"+value+"'";
+            ResultSet result = connection.createStatement().executeQuery(sqlMahasiswa);
+            DefaultListModel model = new DefaultListModel();
+            List<String> listTanggal = new ArrayList<>();
+            
+            int i = 0;
+            boolean cek = false;
+            while (result.next()){
+                JOptionPane.showMessageDialog(null, "cek");
+                listTanggal.add(result.getString("tanggalMeet"));
+                model.addElement(listTanggal.get(i));
+                i = i + 1;
+                cek = true;
+            }
+            if (cek==true){
+                jListTanggal.setModel(model);
+            }
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error Connection to SQLite Database");
+            Logger.getLogger(dashboardMahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jListKelasMouseClicked
+
+    private void jListTanggalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListTanggalMouseClicked
+        // TODO add your handling code here:
+        String value = jListTanggal.getSelectedValue();
+        String jdbcUrl;
+        jdbcUrl = "jdbc:sqlite:sqlite/userdb.db";
+        Connection connection;
+        try {
+            connection = DriverManager.getConnection(jdbcUrl);
+            String sqlMahasiswa = "select * from Meet where tanggalMeet='"+value+"'";
+            ResultSet result = connection.createStatement().executeQuery(sqlMahasiswa);
+            DefaultListModel model = new DefaultListModel();
+            List<String> listTanggal = new ArrayList<>();
+            
+            int i = 0;
+            boolean cek = false;
+            while (result.next()){
+                jNamaMeet.setText(result.getString("namaMeet"));
+                jLinkMeet.setText(result.getString("linkMeet"));
+                i = i + 1;
+                cek = true;
+            }
+            if (cek==true){
+                jListTanggal.setModel(model);
+            }
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error Connection to SQLite Database");
+            Logger.getLogger(dashboardMahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jListTanggalMouseClicked
 
     /**
      * @param args the command line arguments
@@ -205,12 +293,12 @@ public class dashboardMahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jListKelas;
+    private javax.swing.JTextField jLinkMeet;
+    public javax.swing.JList<String> jListKelas;
+    private javax.swing.JList<String> jListTanggal;
+    private javax.swing.JTextField jNamaMeet;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
