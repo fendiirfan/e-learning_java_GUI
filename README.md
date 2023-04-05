@@ -1,10 +1,10 @@
-# e-learning_java_GUI
+## E-Learning Platform Using Java GUI
 
-### Aktor
-1. Dosen
-2. Mahasiswa
+## Actors
+* Lecturer
+* Student
 
-### Fitur
-1. Login (Admin, Dosen, Mahasiswa)
-2. Buat Buat Link Meet (Dosen)
-3. View Link Meet (Mahasiswa)
+## Features
+* Login (Admin, Lecturer, Student)
+* Create Meet Link (Lecturer)
+* View Meet Link (Student)
